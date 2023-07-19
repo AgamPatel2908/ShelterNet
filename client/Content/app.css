@@ -79,8 +79,14 @@ body {
     padding: 50px;
   }
   
-  .table-responsive,.form{
-    width:150%;
+  .table-responsive{
+    width:250%;
+    align-items: center;
+  }
+
+  .form{
+    width: 250%;
+    align-items: center;
   }
 
   .feature {
