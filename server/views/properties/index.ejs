@@ -1,0 +1,79 @@
+<!--
+Name: Agam Patel
+ID: 301277925
+Course code: COMP 229
+Course name: Web Application Development
+-->
+
+<% include ../partials/header.ejs %>
+
+    <!-- MAIN CONTENT -->
+    <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h3>Property Listing </h3>
+          
+          <a href="/properties/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a Property</a>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th class="text-center">Price</th>
+                  <th class="text-center">Location</th>
+                  <th class="text-center">Description</th>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Template Row -->
+                <% for (let count = 0; count < properties.length; count++) { %>
+                <tr>
+                  <td><%= properties[count].name %></td>
+                  <td class="text-center">$<%= properties[count].price %></td>
+                  <td class="text-center"><%= properties[count].location %></td>
+                  <td class="text-center"><%= properties[count].description%></td>
+
+                  <td class="text-center">
+                    <a href="/properties/<%= properties[count]._id %>" class="btn btn-primary btn-sm edit">Edit</a>
+                  </td>
+
+                  <td class="text-center">
+                    <a href="/properties/delete/<%= properties[count]._id %>" class="btn btn-danger btn-sm delete">Delete</a>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="features">
+      <div class="feature">
+        <img src="https://th.bing.com/th/id/R.efa6760b4d25d48d0bb8991f69252e7d?rik=BrNZlEXAwXreeg&riu=http%3a%2f%2fst.houzz.com%2fsimgs%2fc1f1f35c01181a60_4-4118%2ftraditional-living-room.jpg&ehk=b%2bvKXLiVsiMIqHJ7LgLmAPW6yD7Ose73uUuT0RnQcD4%3d&risl=&pid=ImgRaw&r=0" alt="Feature 1">
+        <h3>Exquisite Interiors</h3>
+        <p>Discover homes with stunning interior designs that provide luxury and comfort.</p>
+      </div>
+      <div class="feature">
+        <img src="https://th.bing.com/th/id/R.200bd2bb1f01f70a951a4767ccfc4019?rik=pgAD%2fuSGj%2fDMiQ&riu=http%3a%2f%2fwww.architectureartdesigns.com%2fwp-content%2fuploads%2f2016%2f10%2f15-Breathtaking-Rustic-Balcony-Designs-With-Killer-Views-4.jpg&ehk=koFJ3WZOpU6ZM3dRqHKTiFRUPgCnDoqTfZuHmELkhlM%3d&risl=&pid=ImgRaw&r=0" alt="Feature 2">
+        <h3>Breathtaking Views</h3>
+        <p>Experience panoramic views of nature, cityscapes, or beautiful waterfronts.</p>
+      </div>
+      <div class="feature">
+        <img src="https://www.tripsavvy.com/thmb/AsP4bvE_JnGgxmUv0n52nkfndB4=/1280x853/filters:fill(auto,1)/2481112503_df3d8961e9_o-56a391723df78cf7727dfcd3.jpg" alt="Feature 3">
+        <h3>Resort-Style Amenities</h3>
+        <p>Enjoy a range of amenities including pools, fitness centers, and recreational areas.</p>
+      </div>
+    </section>
+  </main>
+
+<% include ../partials/footer.ejs %>
+
+
